@@ -1,0 +1,28 @@
+#Criando o container
+sudo docker run -d \
+  --name mongodb \
+  -e MONGO_INITDB_ROOT_USERNAME=admin \
+  -e MONGO_INITDB_ROOT_PASSWORD=password \
+  -p 27017:27017 \
+  mongo:latest
+
+# Lista todos os contêineres, incluindo os parados
+docker ps -a
+
+# Inicia/Reinicia o contêiner MongoDB
+docker start mongodb
+
+# Acessa o shell do MongoDB
+docker exec -it mongodb mongosh -u admin -p password --authenticationDatabase admin
+
+# Para o contêiner MongoDB
+docker stop mongodb
+
+#Usando o Mongo no shell
+show dbs                                               // Lista todos os bancos de dados
+use resume-db                                          // Seleciona o banco de dados resume-db
+show collections                                       // Lista todas as coleções no banco de dados selecionado
+db.curriculums.find()                                  // Exibe todos os documentos na coleção curriculums
+db.curriculums.find({}, {'_id': 1})                    // Busca os documentos pelo id passado no parametro
+db.curriculums.find({}, {'_id': 1, 'filename': 1})     // Busca os documentos pelo id mostrando o nome do arquivo
+db.curriculums.find({}, {'filename': 1, '_id': 0})     // Exibe somente o nome do arquivo buscando pelo numero sequencial

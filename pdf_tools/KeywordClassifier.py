@@ -5,5 +5,7 @@ class KeywordClassifier:
         self.llm = pipeline("zero-shot-classification")
 
     def has_keyword(self, text, keyword):
-        result = self.llm(text, candidate_labels=[keyword])
-        return result['labels'][0] == keyword
+        text_lower = text.lower()
+        keyword_lower = keyword.lower()
+        
+        return keyword_lower in text_lower

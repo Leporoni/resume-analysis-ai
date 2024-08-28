@@ -1,2 +1,6 @@
 PyPDF2==2.12.1
 transformers==4.27.1
+pymongo==4.8.0
+
+#Update file after changes
+#pip install -r requirements.txt
