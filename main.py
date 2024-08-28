@@ -5,7 +5,7 @@ from pdf_tools.PDFKeywordProcessor import PDFKeywordProcessor
 from db.MongoDBManager import MongoDBManager
 
 if __name__ == "__main__":
-    keyword = "backend"
+    keyword = "fullstack"
     pdf_directory = "curriculums"
 
     pdf_reader = PDFReader()

@@ -26,3 +26,4 @@ db.curriculums.find()                                  // Exibe todos os documen
 db.curriculums.find({}, {'_id': 1})                    // Busca os documentos pelo id passado no parametro
 db.curriculums.find({}, {'_id': 1, 'filename': 1})     // Busca os documentos pelo id mostrando o nome do arquivo
 db.curriculums.find({}, {'filename': 1, '_id': 0})     // Exibe somente o nome do arquivo buscando pelo numero sequencial
+db.curriculums.deleteMany({})                          // Excluí todos os registros da coleção curriculums

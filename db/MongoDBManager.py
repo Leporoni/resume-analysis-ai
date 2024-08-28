@@ -7,6 +7,7 @@ class MongoDBManager:
         self.client = MongoClient(host, port, username=username, password=password)
         self.db = self.client[database]
         self.collection = self.db['curriculums']
+        self.clear_collection()
 
     def save_curriculum(self, filename, text):
         curriculum = Curriculum(filename, text)
@@ -15,3 +16,7 @@ class MongoDBManager:
 
     def get_curriculum(self, id):
         return self.collection.find_one({'_id': ObjectId(id)})
+    
+    def clear_collection(self):
+        self.collection.delete_many({})
+        print("Coleção 'curriculums' limpa.")
